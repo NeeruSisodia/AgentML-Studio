@@ -1,0 +1,252 @@
+# =============================================
+# AGENTM STUDIO — GITIGNORE
+# Covers Python Backend + React Frontend
+# =============================================
+
+
+# =============================================
+# BACKEND DATA AND MODELS FOLDERS
+# =============================================
+
+# Backend specific
+backend/.env
+backend/__pycache__/
+backend/data/*
+!backend/data/.gitkeep
+backend/models/*
+!backend/models/.gitkeep
+
+
+# =============================================
+# PYTHON BACKEND
+# =============================================
+
+
+# Python compiled files
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pyc
+
+# Python distribution
+build/
+dist/
+*.egg-info/
+*.egg
+
+# Virtual environments
+venv/
+env/
+.venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+
+# Type checking
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Jupyter notebooks
+.ipynb_checkpoints/
+*.ipynb
+
+# Anaconda
+.anaconda/
+
+
+# =============================================
+# ENVIRONMENT VARIABLES — NEVER PUSH THESE
+# =============================================
+
+.env
+.env.local
+.env.development
+.env.production
+.env.test
+.env.staging
+*.env
+
+
+# =============================================
+# DATA FILES — TOO LARGE FOR GITHUB
+# =============================================
+
+# Uploaded data files
+data/
+*.csv
+*.xlsx
+*.xls
+*.tsv
+
+# Documents
+*.pdf
+*.docx
+*.doc
+*.txt
+*.md.bak
+
+# Images uploaded by users
+uploads/
+*.jpg
+*.jpeg
+*.png
+*.gif
+*.bmp
+*.webp
+*.svg
+
+
+# =============================================
+# MACHINE LEARNING MODELS — TOO LARGE
+# =============================================
+
+models/
+*.pkl
+*.joblib
+*.h5
+*.pt
+*.pth
+*.onnx
+*.bin
+*.model
+
+
+# =============================================
+# REACT FRONTEND
+# =============================================
+
+# Node modules — never push these
+node_modules/
+frontend/node_modules/
+
+# Vite build output
+dist/
+dist-ssr/
+frontend/dist/
+*.local
+
+# NPM and Yarn logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Package lock files — optional to include
+# Uncomment below to ignore lock files
+# package-lock.json
+# yarn.lock
+
+
+# =============================================
+# EDITOR AND IDE FILES
+# =============================================
+
+# VS Code
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+
+# JetBrains (PyCharm, WebStorm)
+.idea/
+*.iml
+*.iws
+*.ipr
+
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+
+# Vim
+*.swp
+*.swo
+*~
+
+# Emacs
+*#
+.#*
+
+
+# =============================================
+# OPERATING SYSTEM FILES
+# =============================================
+
+# MacOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+.Spotlight-V100
+.Trashes
+
+# Windows
+Thumbs.db
+Thumbs.db:encstore
+Desktop.ini
+$RECYCLE.BIN/
+*.cab
+*.msi
+*.msix
+*.msm
+*.msp
+*.lnk
+
+# Linux
+*~
+.fuse_hidden*
+.directory
+.Trash-*
+.nfs*
+
+
+# =============================================
+# LOGS AND TEMPORARY FILES
+# =============================================
+
+# Log files
+logs/
+*.log
+log.txt
+error.log
+access.log
+
+# Temporary files
+*.tmp
+*.temp
+*.bak
+*.backup
+*.orig
+*.rej
+
+
+# =============================================
+# SECURITY — NEVER PUSH THESE
+# =============================================
+
+# API keys and secrets
+*.key
+*.pem
+*.p12
+*.pfx
+secrets.json
+secrets.yaml
+secrets.yml
+credentials.json
+
+# SSH keys
+id_rsa
+id_rsa.pub
+id_dsa
+id_dsa.pub
+id_ecdsa
+id_ecdsa.pub
+id_ed25519
+id_ed25519.pub
