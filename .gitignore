@@ -91,6 +91,7 @@ data/
 *.docx
 *.doc
 *.txt
+!backend/requirements
 *.md.bak
 
 # Images uploaded by users
