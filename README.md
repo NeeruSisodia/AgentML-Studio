@@ -1,4 +1,4 @@
-# AgentML Studio 🤖
+# AgentML Studio 
 
 **A free and easy to use Agentic AI system for automated data analysis and machine learning**
 
@@ -16,15 +16,15 @@ This project was built as a Bachelor's Thesis at HAMK University of Applied Scie
 
 ## Features
 
-- ✅ **Automated ML Pipeline** — Upload a CSV file and the system automatically cleans the data, selects the best features, trains multiple machine learning models, and deploys the best one
-- ✅ **Multi File Support** — Supports CSV, Excel, Word, PDF, Images, and Text files
-- ✅ **AutoML** — Automatically tests 10 machine learning algorithms and selects the best one
-- ✅ **Explainable AI** — Results are explained in simple everyday language
-- ✅ **Live Updates** — Real time pipeline updates through WebSocket connection
-- ✅ **Feature Importance** — Visual chart showing which features had the most impact
-- ✅ **Model Comparison** — Table showing all tested algorithms and their scores
-- ✅ **Auto Deployment** — Models above 82% accuracy are automatically deployed
-- ✅ **Completely Free** — No paid APIs or services required
+-  **Automated ML Pipeline** — Upload a CSV file and the system automatically cleans the data, selects the best features, trains multiple machine learning models, and deploys the best one
+-  **Multi File Support** — Supports CSV, Excel, Word, PDF, Images, and Text files
+-  **AutoML** — Automatically tests 10 machine learning algorithms and selects the best one
+-  **Explainable AI** — Results are explained in simple everyday language
+-  **Live Updates** — Real time pipeline updates through WebSocket connection
+-  **Feature Importance** — Visual chart showing which features had the most impact
+-  **Model Comparison** — Table showing all tested algorithms and their scores
+-  **Auto Deployment** — Models above 82% accuracy are automatically deployed
+-  **Completely Free** — No paid APIs or services required
 
 ---
 
