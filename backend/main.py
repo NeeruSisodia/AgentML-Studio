@@ -27,14 +27,12 @@ os.makedirs("models", exist_ok=True)
 
 connections = []
 
-
 async def broadcast(msg: str):
     for ws in connections:
         try:
             await ws.send_text(msg)
         except Exception:
             pass
-
 
 @app.websocket("/ws")
 async def websocket_endpoint(ws: WebSocket):
@@ -45,7 +43,6 @@ async def websocket_endpoint(ws: WebSocket):
             await ws.receive_text()
     except WebSocketDisconnect:
         connections.remove(ws)
-
 
 @app.post("/api/run")
 async def run_pipeline(file: UploadFile):
@@ -61,14 +58,12 @@ async def run_pipeline(file: UploadFile):
         "file":   file.filename
     }
 
-
 @app.get("/api/health")
 def health():
     return {
         "status": "ok",
         "agent":  "LangChain + TinyLlama FREE"
     }
-
 
 @app.post("/api/analyse-file")
 async def analyse_file(
@@ -81,7 +76,6 @@ async def analyse_file(
     agent  = FileAgent()
     result = agent.analyse(path, question)
     return result
-
 
 @app.get("/api/supported-types")
 def supported_types():

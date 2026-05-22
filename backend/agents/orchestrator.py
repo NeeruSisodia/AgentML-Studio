@@ -17,10 +17,8 @@ ma = ModelAgent()
 _logs  = []
 _metrics = {}
 
-#  Initialize OllamaLLM with TinyLlama
-# Used for generating plain language explanations
+#  Set up TinyLlama to explain results in plain language
 llm = OllamaLLM(model="tinyllama")
-
 
 #   Define the Pipeline State
 class PipelineState(TypedDict):
@@ -28,7 +26,6 @@ class PipelineState(TypedDict):
     stage:    str
     metrics:  dict
     logs:     list
-
 
 def _log(msg, level="info"):
     entry = {
@@ -38,7 +35,6 @@ def _log(msg, level="info"):
     }
     _logs.append(entry)
     print(f"[{level.upper()}] {msg}")
-
 
 def _generate_explanation(metrics: dict) -> str:
     """
@@ -92,8 +88,7 @@ def _generate_explanation(metrics: dict) -> str:
             f"model automatically."
         )
 
-
-#   Define LangChain Tools
+#   define LangChain Tools
 @tool
 def ingest_data(csv_path: str) -> str:
     """Ingests and cleans a CSV file.
@@ -117,7 +112,6 @@ def ingest_data(csv_path: str) -> str:
         _log(f"Ingest failed: {e}", "error")
         return f"ERROR: {e}"
 
-
 @tool
 def analyse_dataset(input: str = "run") -> str:
     """Analyses dataset for class balance.
@@ -140,7 +134,6 @@ def analyse_dataset(input: str = "run") -> str:
     except Exception as e:
         _log(f"Analysis failed: {e}", "error")
         return f"ERROR: {e}"
-
 
 @tool
 def engineer_features(input: str = "run") -> str:
@@ -172,7 +165,6 @@ def engineer_features(input: str = "run") -> str:
         )
         return f"ERROR: {e}"
 
-
 @tool
 def train_best_model(input: str = "run") -> str:
     """Trains ML models and picks the best one.
@@ -191,7 +183,6 @@ def train_best_model(input: str = "run") -> str:
     except Exception as e:
         _log(f"Training failed: {e}", "error")
         return f"ERROR: {e}"
-
 
 @tool
 def deploy_model(input: str = "run") -> str:
@@ -239,7 +230,6 @@ def deploy_model(input: str = "run") -> str:
         _log(f"Deploy failed: {e}", "error")
         return f"ERROR: {e}"
 
-
 #   Define LangGraph Node Functions
 def ingestion_node(
     state: PipelineState
@@ -255,7 +245,6 @@ def ingestion_node(
         "logs":    _logs[-8:]
     }
 
-
 def analysis_node(
     state: PipelineState
 ) -> PipelineState:
@@ -269,7 +258,6 @@ def analysis_node(
         "metrics": _metrics.copy(),
         "logs":    _logs[-8:]
     }
-
 
 def features_node(
     state: PipelineState
@@ -285,7 +273,6 @@ def features_node(
         "logs":    _logs[-8:]
     }
 
-
 def training_node(
     state: PipelineState
 ) -> PipelineState:
@@ -300,7 +287,6 @@ def training_node(
         "logs":    _logs[-8:]
     }
 
-
 def deployment_node(
     state: PipelineState
 ) -> PipelineState:
@@ -314,7 +300,6 @@ def deployment_node(
         "metrics": _metrics.copy(),
         "logs":    _logs[-8:]
     }
-
 
 #   Build the LangGraph Pipeline
 def build_pipeline() -> StateGraph:
@@ -336,7 +321,6 @@ def build_pipeline() -> StateGraph:
     graph.add_edge("deployment", END)
 
     return graph.compile()
-
 
 #   AgentOrchestrator uses LangGraph
 class AgentOrchestrator:
@@ -380,7 +364,7 @@ class AgentOrchestrator:
             await asyncio.sleep(0.3)
 
         try:
-            #  Run the full LangGraph pipeline
+            #  run the full LangGraph pipeline
             final_state = self.pipeline.invoke(
                 initial_state
             )

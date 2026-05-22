@@ -239,7 +239,7 @@ export default function App() {
         </button>
       </div>
 
-      {/* ── ML PIPELINE TAB ────────────────────── */}
+      {/*  ML PIPELINE TAB  */}
       {activeTab === "ml" && (
         <div>
 
@@ -487,7 +487,7 @@ export default function App() {
         </div>
       )}
 
-      {/* ── FILE ANALYSER TAB ──────────────────── */}
+      {/* FILE ANALYSER TAB */}
       {activeTab === "files" && (
         <div>
 
