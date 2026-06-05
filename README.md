@@ -31,6 +31,8 @@ This project was built as a Bachelor's Thesis at HAMK University of Applied Scie
 ## System Architecture
 
 The system consists of three main parts:
+<img width="943" height="849" alt="image" src="https://github.com/user-attachments/assets/b65147ea-e3e0-4895-b307-5fcf6065aed3" />
+
 
 ```
 Frontend (React + Node.js)
@@ -100,6 +102,12 @@ Orchestrator (LangChain + LangGraph)
 | Titanic | Classification | Random Forest | 95.1% | Auto Deployed |
 | Wine Quality | Regression | Random Forest Regressor | 92.2% | Auto Deployed |
 | India Hockey Match Data | Regression | Linear Regression | 99.9% | Auto Deployed |
+
+## Screenshot of Home page
+<img width="897" height="646" alt="image" src="https://github.com/user-attachments/assets/dace2e01-bdbd-4a4a-976a-a249154e93cb" />
+## Result page screenshot
+<img width="1063" height="649" alt="image" src="https://github.com/user-attachments/assets/d770b8f1-e955-4fc2-80bc-c40585858735" />
+
 
 ---
 
