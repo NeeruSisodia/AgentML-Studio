@@ -30,8 +30,7 @@ This project was built as a Bachelor's Thesis at HAMK University of Applied Scie
 
 ## System Architecture
 
-The system consists of three main parts:
-<img width="943" height="849" alt="image" src="https://github.com/user-attachments/assets/b65147ea-e3e0-4895-b307-5fcf6065aed3" />
+The system consists of three main parts:<img width="601" height="541" alt="SystemArchitecture drawio (1)" src="https://github.com/user-attachments/assets/b857e6f1-5fb2-47de-9f7f-db611da706fd" />
 
 
 ```
@@ -47,6 +46,49 @@ Orchestrator (LangChain + LangGraph)
 └─────────────────────────────────┘
 ```
 
+---
+
+## How It Works           
+
+The system runs a 5-stage automated pipeline from file
+upload to model deployment, managed by the
+Confidence Gated Decision Architecture (CDGA).
+
+<img width="702" height="831" alt="AI agent pipeline diagram drawio (1)" src="https://github.com/user-attachments/assets/3d08eb7a-15aa-4cfa-9fe9-22776e08e77e" />
+
+
+### Stage 1 — Ingestion
+The user uploads a CSV file through the React frontend.
+The file is sent to the FastAPI backend via HTTP and the
+pipeline starts automatically.
+
+### Stage 2 — Analysis
+The Data Agent reads the CSV file, removes duplicate
+rows, handles missing values, and prepares the data
+for feature engineering.
+
+### Stage 3 — Feature Engineering
+The File Agent processes the dataset and supports
+multiple file types including PDF, Word, Excel, and
+Images using HuggingFace image AI.
+
+### Stage 4 — Training
+The Model Agent trains multiple machine learning
+algorithms including Random Forest, Gradient Boosting,
+and Logistic Regression, then automatically selects
+the best performing model.
+
+### Stage 5 — Deployment
+The CDGA evaluates the model against three quality gates:
+
+| Gate | Condition | Decision |
+|---|---|---|
+| Gate 1 | Rows > 100 | Data accepted |
+| Gate 2 | Accuracy > 82% | Auto Deployed |
+| Gate 3 | F1 > 0.75 | Model saved to disk |
+
+Results are sent back to the React frontend dashboard
+in real time via WebSocket.
 ---
 
 ## Machine Learning Algorithms
@@ -104,9 +146,13 @@ Orchestrator (LangChain + LangGraph)
 | India Hockey Match Data | Regression | Linear Regression | 99.9% | Auto Deployed |
 
 ## Screenshot of Home page
-<img width="897" height="646" alt="image" src="https://github.com/user-attachments/assets/dace2e01-bdbd-4a4a-976a-a249154e93cb" />
+<img width="682" height="497" alt="Screenshot 2026-06-06 173025" src="https://github.com/user-attachments/assets/7f90972d-d6c3-49d2-a73f-d4bd659f86cf" />
+
 ## Result page screenshot
-<img width="1063" height="649" alt="image" src="https://github.com/user-attachments/assets/d770b8f1-e955-4fc2-80bc-c40585858735" />
+<img width="794" height="528" alt="Screenshot 2026-06-06 173131" src="https://github.com/user-attachments/assets/23519d3a-d0ae-4d27-b0f3-92cc78a5baf9" />
+
+<img width="750" height="615" alt="Screenshot 2026-06-06 173430" src="https://github.com/user-attachments/assets/866b80cf-2f24-4084-9210-a8582b5f6ae6" />
+
 
 ---
 
@@ -115,6 +161,7 @@ Orchestrator (LangChain + LangGraph)
 | Accuracy | Decision |
 |---|---|
 | Above 82% | AUTO DEPLOYED |
+
 | Between 65% and 82% | NEEDS HUMAN REVIEW |
 | Below 65% | DEFERRED |
 
@@ -129,7 +176,7 @@ Orchestrator (LangChain + LangGraph)
 
 ### Step 1 — Clone the repository
 ```bash
-git clone https://github.com/your-username/AgentML-Studio.git
+git clone https://github.com/NeeruSisodia/AgentML-Studio.git
 cd AgentML-Studio
 ```
 
