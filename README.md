@@ -33,19 +33,6 @@ This project was built as a Bachelor's Thesis at HAMK University of Applied Scie
 The system consists of three main parts:<img width="601" height="541" alt="SystemArchitecture drawio (1)" src="https://github.com/user-attachments/assets/b857e6f1-5fb2-47de-9f7f-db611da706fd" />
 
 
-```
-Frontend (React + Node.js)
-        ↕ REST API + WebSocket
-Backend (Python + FastAPI)
-        ↕
-Orchestrator (LangChain + LangGraph)
-        ↕
-┌─────────────────────────────────┐
-│  Data    Model    File    Deploy │
-│  Agent   Agent   Agent   Agent  │
-└─────────────────────────────────┘
-```
-
 ---
 
 ## How It Works           
@@ -89,6 +76,8 @@ The CDGA evaluates the model against three quality gates:
 
 Results are sent back to the React frontend dashboard
 in real time via WebSocket.
+
+
 ---
 
 ## Machine Learning Algorithms
@@ -157,13 +146,12 @@ in real time via WebSocket.
 ---
 
 ## Deployment Decision Logic
-
 | Accuracy | Decision |
 |---|---|
 | Above 82% | AUTO DEPLOYED |
-
 | Between 65% and 82% | NEEDS HUMAN REVIEW |
 | Below 65% | DEFERRED |
+
 
 ---
 
