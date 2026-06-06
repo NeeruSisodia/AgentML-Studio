@@ -108,7 +108,6 @@ Orchestrator (LangChain + LangGraph)
 ## Result page screenshot
 <img width="1063" height="649" alt="image" src="https://github.com/user-attachments/assets/d770b8f1-e955-4fc2-80bc-c40585858735" />
 
-
 ---
 
 ## Deployment Decision Logic
